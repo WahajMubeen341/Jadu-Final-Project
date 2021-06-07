@@ -1,9 +1,91 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import {Home} from './Home'
+import fire from './fire';
 export function Login() {
+    const [user, setUser] =useState('');
+    const [email, setEmail]= useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    
+    const clearInputs = () =>{
+        setEmail('');
+        setPassword('');
+    }
+
+    const clearErrors= () =>{
+        setEmailError('');
+        setPasswordError('');
+    }
+    
+    //login
+    const handleLogin = () => {
+        clearErrors();
+        console.log("email ", email);
+        console.log("password ", password);
+        fire.auth().signInWithEmailAndPassword(email,password).
+        catch(err => {
+            switch(err.code){
+                case "auth/invalid-email":
+                case "auth/user-disabled":
+                case "auth/user-not-found":
+                    setEmailError(err.message);
+                    break;
+                case "auth/wrong-password":
+                    setPasswordError(err.message);
+                    break;   
+            }
+        })
+    };
+
+    const handleSignup = () => {
+        clearErrors();
+        fire.auth().createUserWithEmailAndPassword(email,password).
+        catch(err => {
+            switch(err.code){
+                case "auth/ email-already-in-use":
+                case "auth/invalid-email":
+                    setEmailError(err.message);
+                    break;
+                case "auth/weak-password":
+                    setPasswordError(err.message);
+                    break;   
+            }
+        })
+
+    };
+
+    const handleLogout = () =>{
+        fire.auth().signOut();
+    };
+
+    const authListener = ()=>{
+        fire.auth().onAuthStateChanged(user => {
+            if(user){
+                clearInputs();
+                setUser(user);
+            }
+            else{
+                setUser('');
+            }
+        })
+    };
+
+
+    useEffect(()=>{
+        authListener();
+
+    },[])
+
   return (
     <div>
+        {user ? (
+            <Home/> )
+            :
+            (
+        <>
       <div class="sidenav">
         <div class="login-main-text">
           <h2>
@@ -35,7 +117,7 @@ export function Login() {
               <div class="myform">
                 <div class="logo mb-3">
                   <div class="col-md-12 text-center">
-                    <h1>Register</h1>
+                    <h1>Login</h1>
                   </div>
                 </div>
 
@@ -45,11 +127,15 @@ export function Login() {
                     <input
                       type="email"
                       name="email"
+                      autoFocus
                       class="form-control"
                       id="verify_email"
+                      value={email}
+                      onChange={(e)=> {setEmail(e.target.value)}}
                       placeholder="Enter email"
                       required
                     />
+                    <p style={{color:'red'}}>{emailError}</p>
                   </div>
                   <div class="form-group">
                     <label> Password </label>
@@ -58,9 +144,12 @@ export function Login() {
                       name="password"
                       id="verify_password"
                       class="form-control"
+                      value={password}
+                      onChange={(e)=> setPassword(e.target.value)}
                       placeholder="Enter Password"
                       required
                     />
+                    <p style={{color:'red'}}>{passwordError}</p>
                   </div>
                   <div class="col-md-12 text-center">
                     <button
@@ -68,6 +157,7 @@ export function Login() {
                       type="submit"
                       class="btn btn-block mybtn tx-tfm"
                       style={{ backgroundColor: "#0b8cd5", color: "white" }}
+                      onClick={handleLogin}
                     >
                       Log In
                     </button>
@@ -96,6 +186,8 @@ export function Login() {
           </div>
         </div>
       </div>
+          </>
+            )}
     </div>
   );
 }
