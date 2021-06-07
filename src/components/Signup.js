@@ -62,12 +62,36 @@ export function Signup() {
               <p class="text-center">
                 <br />
                 Already have an account?
-                <a href="./login.html" id="signup">Log in here</a>
+                <a  onClick={()=> {setFormType("login")}} id="signup">Log in here</a>
               </p>
       
           </form>
           :
-          null}
+          <form>
+              <div class="form-group">
+                <label> Email address </label>
+                <input type="email" name="email" class="form-control" id="verify_email" placeholder="Enter email" required/>
+              </div>
+              <div class="form-group">
+                <label> Password </label>
+                <input type="password" name="password" id="verify_password" class="form-control"
+                  placeholder="Enter Password" required/>
+              </div>
+              <div class="col-md-12 text-center">
+                <button id="check_member" type="submit" class="btn btn-block mybtn tx-tfm"
+                  style={{backgroundColor: '#0b8cd5', color: 'white'}}>
+                  Log In
+                </button>
+              </div>
+              <div class="form-group">
+                <p class="text-center">
+                  <br />
+                  <a href="#" >Forgot password</a><br />
+                  Don't have an account?
+                  <a href="#" onclick={()=>{setFormType("signup")}} id="signup">Sign up here</a>
+                </p>
+              </div>
+            </form>}
         </div>
       </div>
     </div>
