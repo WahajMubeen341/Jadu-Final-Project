@@ -1,6 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import {Signup} from './components/Signup'
+import logo from "./logo.svg";
+import "./App.css";
+import { Signup } from "./components/Signup";
+import {Login} from "./components/Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -20,8 +22,17 @@ function App() {
         </a>
       </header>
        */}
-    <Signup/>
-    
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Signup />
+          </Route>
+          <Route exact path="/Login">
+            <Login/>
+          </Route>
+          <Route exact path="/home"></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
