@@ -4,11 +4,11 @@ import { Button } from "@material-ui/core";
 import {Home} from './Home'
 import fire from './fire';
 export function Login() {
-    const [user, setUser] =useState('');
-    const [email, setEmail]= useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
+  const [user, setUser] =useState('');
+  const [email, setEmail]= useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
     
     const clearInputs = () =>{
         setEmail('');
