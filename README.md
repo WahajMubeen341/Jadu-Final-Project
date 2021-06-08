@@ -1,4 +1,7 @@
 # Jadu-Final-Project
+
+------------THE PROJECT IS A VERY BASIC IMAGE OF ADDING AND CONFIGURING FIREBASE INTO A REACT PROJECT. PROJECT ALSO FOLLOWS THE SEPARATION OF COMPONENTS AT A VERY BASIC LEVEL WHICH CAN BE FURTHER SEPEARATED IN CASE OF A BIGGER PROJECT. ------------------------------
+
 This project is an extention of our previous project in JADU.
 Project is made using react and firebase as authentication service.
 Currently, project needs some bug fixing. Homepage is also added in the lastest push.
@@ -19,3 +22,4 @@ Firebase is connected and configured, but needs some fixing (soon).
 
 ------------FIREBASE USERS---------
 ![fb users](https://user-images.githubusercontent.com/57786208/121232446-0f80e380-c8ab-11eb-8e9a-da3123f3b676.PNG)
+
