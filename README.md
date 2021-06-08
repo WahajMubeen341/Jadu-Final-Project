@@ -1,5 +1,14 @@
 # Jadu-Final-Project
 
+Made on:
+
+![download (1)](https://user-images.githubusercontent.com/57786208/121233694-515e5980-c8ac-11eb-9f4c-b60a7c4984c7.png)
+
++
+
+![download](https://user-images.githubusercontent.com/57786208/121233712-56bba400-c8ac-11eb-96f6-02c2bd29f2d7.png)
+
+
 ------------THE PROJECT IS A VERY BASIC IMAGE OF ADDING AND CONFIGURING FIREBASE INTO A REACT PROJECT. PROJECT ALSO FOLLOWS THE SEPARATION OF COMPONENTS AT A VERY BASIC LEVEL WHICH CAN BE FURTHER SEPEARATED IN CASE OF A BIGGER PROJECT. ------------------------------
 
 This project is an extention of our previous project in JADU.
