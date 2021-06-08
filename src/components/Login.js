@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import {Home} from './Home'
+import {Home} from './Home/Home'
 import fire from './fire';
 export function Login() {
   const [user, setUser] =useState('');

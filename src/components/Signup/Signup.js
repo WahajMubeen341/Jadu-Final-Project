@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./styles.css";
-import { Login } from "./Login";
+import { Login } from "../Login";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import fire from './fire'
+import fire from '../fire'
 
 export function Signup() {
 

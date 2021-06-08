@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import "./App.css";
-import { Signup } from "./components/Signup";
+import { Signup } from "./components/Signup/Signup";
 import {Login} from "./components/Login";
-import {Home} from './components/Home';
+import {Home} from './components/Home/Home';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import fire from './components/fire';
 
